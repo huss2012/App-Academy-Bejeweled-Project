@@ -22,8 +22,16 @@ class Cursor {
     Screen.setBackgroundColor(this.row, this.col, this.cursorColor);
   }
 
-  up() {
+  up = () => {
     // Move cursor up
+    this.resetBackgroundColor();
+
+    if (this.row > 0) {
+      this.row--;
+    };
+    
+    this.setBackgroundColor();
+      Screen.render();
   }
 
   down() {
